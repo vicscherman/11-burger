@@ -21,6 +21,7 @@ var orm = {
 
 
     insertOne: function(table, cols, vals, cb) {
+        console.log("colums are", cols , "values are", vals)
         connection.query("INSERT INTO ?? (??) VALUES (?)" ,[table, cols, vals], function(err, result){
             if (err){
                 throw err;
@@ -30,7 +31,7 @@ var orm = {
     },
 
     updateOne: function(table, objColVals, condition, cb) {
-        connection.query("UPDATE ?? SET ? WHERE ?", [table, objColVals, condition], function(err, result){
+        connection.query("UPDATE ?? SET ? WHERE id = ?", [table, objColVals, condition], function(err, result){
             if(err){
                 throw err
             }
@@ -39,7 +40,7 @@ var orm = {
     },
 
     delete: function(table, condition, cb) {
-        connection.query("DELETE FROM ?? WHERE ?", [table, condition],function(err, result){
+        connection.query("DELETE FROM ?? WHERE id= ?", [table, condition],function(err, result){
            if (err){
                throw err
            } 

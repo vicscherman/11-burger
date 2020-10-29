@@ -1,10 +1,15 @@
 var express = require('express');
 
+// var orm = require("./config/orm.js")
+// orm.selectAll("burgers", function(result){console.log( ` burger result: `, result);});
+// orm.insertOne("burgers", "burger_name", "yumm",  function(result){console.log(result)})
+//orm.updateOne("burgers",  "burger_name: cool ", "yumm", function (result ){console.log(result)})//Ask Fil
+//orm.delete("burgers", "", function (result ){console.log(result)})
 var PORT = process.env.PORT || 3000;
 
 var app= express();
 
-app.use(express.static("public)"));
+app.use(express.static("public"));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
